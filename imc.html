@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+
+<script>
+function pulaLinha(){
+document.write("<br><hr><br>");
+}
+
+function mostra(frase){
+document.write(frase);
+pulaLinha();
+}
+
+//peso = 40;
+//altura= 1.6;
+
+//var imc = peso/ (altura*altura);
+//mostra("Meu peso é: " + imc);
+
+function calcularIMC(altura,peso){
+	var imc = peso/ (altura * altura);
+	return imc;
+}
+
+meuIMC=calcularIMC(1.5,40);
+mostra("Meu imc é: " + Math.round(meuIMC));
+mostra("Estou " + (35 - meuIMC) + " pontos abaixo da obesidade");
+
+</script>
