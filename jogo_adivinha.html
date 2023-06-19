@@ -1,0 +1,40 @@
+<meta charset= "UTF-8">
+
+<script>
+	function mostra(frase){
+		document.write(frase + "<br><br>");
+	}
+
+	function verificaErro(){
+			if(numeroPensado > chute){
+		mostra("Você errou! Meu número era maior que o seu...Eu tinha pensado no " + numeroPensado);
+		}
+			else {
+		mostra("Você errou! Meu número era menor que o seu...Eu tinha pensado no " + numeroPensado);
+		}
+		return verificaErro;
+	}
+	
+	function sorteia(n){
+		var numeroEscolhido = Math.round(Math.random(n) * 100);
+		return numeroEscolhido;
+	}
+
+	var numeroPensado = sorteia(100)
+	//var numeroPensado = Math.round(numeroPensadoEmDecimais);
+	
+	var chute = prompt("Já pensei. Qual você acha que é?");
+	
+	if(isNaN(chute)){
+		mostra("Apenas números são válidos");
+	}
+	else{
+		if (chute == numeroPensado){
+			mostra("DEVOLVE MEU NEURONIOOOOOO, VOCE PENSOU NO " + numeroPensado + " TAMBÉM??");
+		}
+	
+		else {	
+			verificaErro();
+		}
+	}
+</script>

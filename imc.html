@@ -21,8 +21,20 @@ function calcularIMC(altura,peso){
 	return imc;
 }
 
-meuIMC=calcularIMC(1.5,40);
-mostra("Meu imc é: " + Math.round(meuIMC));
-mostra("Estou " + (35 - meuIMC) + " pontos abaixo da obesidade");
+imcDoUsuario=calcularIMC(1.6, 50);
+mostra("Meu imc é: " + (imcDoUsuario).toFixed(2));
+mostra("Estou " + Math.round(35 - imcDoUsuario) + " pontos abaixo da obesidade");
+
+if(imcDoUsuario < 18.5){
+	mostra("Seu imc indica que está abaixo do peso");
+}
+
+if(imcDoUsuario > 18.5 && imcDoUsuario < 35){
+	mostra("Está nos limites viu");
+}
+
+if(imcDoUsuario > 35){
+	mostra("Seu IMC indica que está acima do peso");
+}
 
 </script>
