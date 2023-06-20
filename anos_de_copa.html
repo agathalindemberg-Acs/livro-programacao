@@ -1,0 +1,20 @@
+<meta charset = "UTF-8">
+
+<script>
+
+	function mostra(frase){
+		document.write(frase + "<br><br>");
+	}
+	
+	var anoDeCopa = parseInt(prompt("Qual é o ano inicial?"));
+	var anoLimite = prompt("Qual é o ano limite?");
+	
+	while(anoDeCopa <= anoLimite){
+		anoDeCopa = anoDeCopa + 4;
+		mostra(anoDeCopa + " tem copa!");
+	}
+	
+	mostra("Ufa!! Essas foram as copas dos últimos anos até 2023");
+
+
+</script>

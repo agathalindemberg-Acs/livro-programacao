@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+
+<script>
+
+/* ===============DESAFIOS 2
+	(function mostra(frase){
+		document.write(frase + "<br>");
+	}
+
+	var tamanho = prompt("Qual o tamanho quer do quadrado?");
+	
+	for(var linha = 0; linha < tamanho; linha = linha + 1){
+		for(coluna = 0; coluna < tamanho; coluna = coluna + 1){
+			document.write("*");
+		}	
+		document.write("<br>");
+	}*/
+	
+// ================DESAFIO CRESCENTE
+	/*var tamanho = prompt("Qual o tamanho que você quer para a escadinha?");
+
+	for (var linha = 0; linha < tamanho; linha = linha + 1) {
+		for (var coluna = 0; coluna <= linha; coluna = coluna + 1) {
+			document.write("*");
+		}
+		document.write("<br>");
+	}*/
+	
+// ==================DESAFIO V
+	var tamanho = 9;
+
+	for (var linha = 0; linha < tamanho; linha = linha + 1) {
+		for (var coluna = 0; coluna < tamanho * 2; coluna = coluna + 1) {
+			if (coluna == linha || coluna == tamanho * 2 - linha - 1) {
+				document.write("*");
+			} else {
+				document.write("_");
+			}
+		}
+		document.write("<br>");
+	}
+
+</script>

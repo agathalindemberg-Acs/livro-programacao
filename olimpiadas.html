@@ -1,0 +1,23 @@
+<meta charset= "UTF-8">
+
+<script>
+	function mostra(frase){
+		document.write(frase + "<br><br>");
+	}
+	
+	var anoDeOlimpiada = parseInt(prompt("Qual é o ano inicial?"));
+	var anoLimite = prompt("Qual é o ano limite?");
+	
+	
+	while(anoDeOlimpiada <= anoLimite && anoDeOlimpiada >= 1896){
+		anoDeOlimpiada = anoDeOlimpiada + 4;
+		mostra(anoDeOlimpiada + " tem olimíadas!");
+	} 
+	
+	
+	if (anoDeOlimpiada >= 1896){
+		mostra("Ufa!! Essas foram as olimpíadas dos últimos anos até 2023");
+	} else{
+		mostra("Bote o inicio a partir de 1896");
+	}
+</script>

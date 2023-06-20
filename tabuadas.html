@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+
+<script>
+	function mostra(frase){
+		document.write(frase + "<br><br>");
+	}
+	
+	var numeroTabuada = parseInt(prompt("Qual tabuada deseja consultar?"));
+	
+	//var multiplicador = 0;
+	//while(multiplicador < 10){
+	//	multiplicador= multiplicador + 1;
+	//	mostra(numeroTabuada + " vezes " + multiplicador + " é igual a " + numeroTabuada * multiplicador);
+	//}
+
+	for(var multiplicador = 1; multiplicador <= 10; multiplicador++){
+		mostra(numeroTabuada + " vezes " + multiplicador + " é igual a " + numeroTabuada * multiplicador);
+	}
+
+
+	//for( 1 ; 2 ; 3 )
+	// 1 - Realizar inicializações ( numero = 1 )
+	// 2 - Condição ( numero <= 10)
+	// 3 - SEMPRE EXECUTA ( numero = numero + 1)
+	
+	
+</script>

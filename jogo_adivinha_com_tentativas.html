@@ -1,0 +1,32 @@
+<meta charset = "UTF-8">
+
+<script>
+	function verificaErro(){
+			if(numeroPensado > chute){
+		alert("Você errou! Meu número era maior que o seu...Eu tinha pensado no " + numeroPensado);
+		}
+			else {
+		alert("Você errou! Meu número era menor que o seu...Eu tinha pensado no " + numeroPensado);
+		}
+		return verificaErro;
+	}
+	
+	
+
+	while(true){
+	var numeroPensado = Math.round(Math.random() * 1000);
+	var chute = prompt("Qual você acha q é?");
+		
+		if (chute == numeroPensado){
+			alert("VOCE PENSOU NO " + numeroPensado + " TAMBÉM??");
+			break;
+		}
+	
+		else {	
+			verificaErro();
+		}
+		console.log(numeroPensado);
+	}
+
+
+</script>
