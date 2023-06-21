@@ -1,0 +1,51 @@
+<meta charset="UTF-8">
+
+<input type="text" id="numero"/>
+<input type="submit" value="Adicione e verifique no Bingo!" id="verificar"/>
+
+<script>
+	var sorteados = [];
+	var guardar = [];
+
+
+    function adicionarTentativas() {
+		var numero = document.getElementById("numero").value;
+		var segredo = Math.floor(Math.random() * 60) + 1;
+
+		while(guardar.length <= 6){
+			guardar.push(segredo);
+			break;
+		}
+		
+		if (sorteados.length >= 6) {
+			alert("Você já adicionou todos os 6");
+			return;
+		}
+
+		for (var i = 0; i < sorteados.length; i++) {
+			if (sorteados[i] == numero) {
+				alert("Número já sorteado!");
+				return;
+			}
+		}
+
+		sorteados.push(numero);
+		console.log(sorteados);
+		console.log(guardar);
+		if (guardar.length == 6 && sorteados.length == 6) {
+			var numerosIguais = [];
+			for (var i = 0; i < guardar.length; i++) {
+				if (sorteados.includes(guardar[i])) {
+					numerosIguais.push(guardar[i]);
+				}
+			}
+			
+			if (numerosIguais.length > 0) {
+				document.write("Números iguais encontrados: " + numerosIguais.join(", "));
+			}
+		}
+	}
+	
+	var botao = document.getElementById("verificar");
+	botao.onclick = adicionarTentativas;
+ </script>
