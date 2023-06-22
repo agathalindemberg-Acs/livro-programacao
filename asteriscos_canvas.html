@@ -1,0 +1,27 @@
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script>
+var tela = document.getElementById("tela");
+var c = tela.getContext("2d");
+c.fillStyle="red";
+c.fillRect(0,0,450,300);
+
+function desenhaBola(x,y,z){
+	c.fillStyle=z;
+	c.beginPath();
+	c.arc(x+25,y,1,0,2*3.14);
+	c.fill();
+}
+
+
+	var tamanho = 200;
+
+	for (var linha = 0; linha < tamanho; linha = linha + 1) {
+		for (var coluna = 0; coluna < tamanho * 2; coluna = coluna + 1) {
+			if (coluna == linha || coluna == tamanho * 2 - linha - 1) {
+				desenhaBola(coluna, linha, "blue");
+			} 
+		}
+		document.write("<br>");
+	}
+</script>
