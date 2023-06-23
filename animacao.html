@@ -1,0 +1,76 @@
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script>
+	var tela = document.getElementById("tela");
+	var c = tela.getContext("2d");
+	var alvoX;
+	var alvoY;
+	var pontos = 0;
+
+	function circulo(x, y, raio) {
+		c.beginPath();
+		c.arc(x, y, raio, 0, 2 * Math.PI);
+		c.fill();
+	}
+
+	function sorteia(x) {
+		var sortear = Math.floor(Math.random() * x) + 1;
+		return sortear;
+	}
+
+	function limpaTela() {
+		c.clearRect(0, 0, 600, 400);
+	}
+
+	function escolherCor(cor) {
+		c.fillStyle = cor;
+	}
+
+	function desenha() {
+		limpaTela();
+		c.font = "20px Arial";
+		c.fillText("Pontuação: " + pontos, 30, 30);
+		alvoX = sorteia(600);
+		alvoY = sorteia(400);
+		desenhaAlvo(alvoX, alvoY);
+	}
+
+	function clicouNoCanvas(evento) {
+		var x = evento.pageX - tela.offsetLeft;
+		var y = evento.pageY - tela.offsetTop;
+
+		if (x >= alvoX - 40 && x <= alvoX + 40 && y >= alvoY - 40 && y <= alvoY + 40) {
+			pontos++;
+		}
+
+		c.fillStyle = "gray";
+		c.beginPath();
+		c.arc(x, y, 10, 0, 2 * Math.PI);
+		c.fill();
+	}
+
+	function desenhaAlvo(x, y) {
+		var raio = 40;
+		escolherCor("white");
+		circulo(x, y, raio);
+		escolherCor("red");
+		circulo(x, y, raio - 10);
+		escolherCor("white");
+		circulo(x, y, raio - 20);
+		escolherCor("red");
+		circulo(x, y, raio - 30);
+	}
+
+	setInterval(desenha, 1000);	
+	tela.addEventListener('click', clicouNoCanvas);
+
+	/*var imagem = new Image();
+	imagem.scr = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwho-made-me-a-princess.fandom.com%2Fwiki%2FAthanasia_de_Alger_Obelia&psig=AOvVaw2PBzszfuSSH0XYn0BATk_G&ust=1687614810864000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMCErp_F2f8CFQAAAAAdAAAAABAE";
+	
+	function desenhaImagem (x, y){
+		c.drawImage(imagem, x, y);
+	}
+	
+	setInterval(desenhaImagem, 30);*/
+		
+</script>

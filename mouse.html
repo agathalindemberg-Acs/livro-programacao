@@ -1,0 +1,38 @@
+<canvas id="tela" width="600" height="400"></canvas>
+<button onclick="escolherCor('blue')">Azul</button>
+<button onclick="escolherCor('red')">Vermelho</button>
+<button onclick="escolherCor('yellow')">Amarelo</button>
+
+<script>
+	var tela = document.getElementById("tela");
+	var c = tela.getContext("2d");
+	var corEscolhida = "blue";
+
+	function escolherCor(cor) {
+		corEscolhida = cor;	
+	}
+
+	c.fillStyle = "gray";
+	c.fillRect(0, 0, 600, 400);
+
+	function clicouNoCanvas(evento) {
+		var x = evento.pageX - tela.offsetLeft;
+		var y = evento.pageY - tela.offsetTop;
+
+
+		/*if (evento.button === 0) {
+		c.fillStyle = "blue";
+		} else if (evento.button === 2) {
+		c.fillStyle = "red";
+		}*/
+	
+		c.fillStyle = corEscolhida;
+		c.beginPath();
+		c.arc(x, y, 10, 0, 2 * Math.PI);
+		c.fill();
+
+		console.log("Posição do clique: " + x + ", " + y);
+	}
+
+	tela.addEventListener('click', clicouNoCanvas);
+</script>
