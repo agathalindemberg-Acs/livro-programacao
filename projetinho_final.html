@@ -1,0 +1,54 @@
+<meta charset="UTF-8">
+
+<input type="text" placeholder="Digite seu nome" value="" id="nomeInp"/>
+<input type="text" placeholder="Digite sua idade" value="" id="idadeInp"/>
+<input type="text" placeholder="Digite seu peso" value="" id="pesoInp"/>
+<input type="text" placeholder="Digite sua altura" value="" id="alturaInp"/>
+<br>
+<input type="submit" value="Gerar relatório" id="aceita"/>
+
+<canvas id="chart" width="600" height="400"></canvas>
+
+<script>
+  var geraRelatorio = document.getElementById("aceita");
+  var canvas = document.getElementById("chart");
+  var c = canvas.getContext("2d");
+
+  geraRelatorio.addEventListener("click", function() {
+    var nomeInp = document.getElementById("nomeInp").value;
+    var idadeInp = document.getElementById("idadeInp").value;
+    var pesoInp = document.getElementById("pesoInp").value;
+    var alturaInp = document.getElementById("alturaInp").value;
+
+    var pessoa = {
+      nome: nomeInp,
+      idade: idadeInp,
+      peso: pesoInp,
+      altura: alturaInp
+    };
+
+    function calcularIMC(altura, peso) {
+      var imc = peso / (altura * altura);
+      return imc;
+    }
+
+    var imc = calcularIMC(pessoa.altura, pessoa.peso);
+    console.log("Nome: " + pessoa.nome);
+    console.log("Idade: " + pessoa.idade);
+    console.log("Peso: " + pessoa.peso);
+    console.log("Altura: " + pessoa.altura);
+    console.log("IMC: " + imc);
+
+    desenha(imc);
+  });
+
+  function desenha(imc) {
+    c.clearRect(0, 0, canvas.width, canvas.height);
+
+    c.fillStyle = "green";
+    c.fillRect(0, 400, 100, -(imc * 10));
+	
+	c.fillStyle = "red";
+	c.fillRect(200,400,100, -180);
+  }
+</script>
